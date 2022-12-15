@@ -18,15 +18,15 @@ char	**ft_split(char const *s, char c)
 	int		ii;
 	int		lensub;
 
-	res = (char **)malloc(sizeof(char *) * (ft_strlen((char *)s) / 2) + 8);
+	res = (char **)ft_calloc(8 * (ft_strlen((char *)s) / 2) + 8, 1);
 	if (!res)
 		return (NULL);
 	res[0] = NULL;
 	i = 0;
 	ii = 0;
-	while (s[i])
+	while (s && s[i])
 	{
-		while (s[i] == c)
+		while (s && s[i] == c)
 			i++;
 		lensub = i;
 		while (s[lensub] != c && s[lensub])
@@ -39,3 +39,27 @@ char	**ft_split(char const *s, char c)
 	}
 	return (res);
 }
+
+/*int		main(void)
+{
+	char	**prova;
+	char	*s;
+
+	s = "sssssdgg";
+	prova = ft_split(s, ' ');
+
+	printf("%s", prova[0]);
+	printf("%s", "\n");
+	printf("%s", prova[1]);
+printf("%s", "\n");
+	printf("%s", prova[2]);
+printf("%s", "\n");
+	printf("%s", prova[3]);
+printf("%s", "\n");
+	printf("%s", prova[4]);
+printf("%s", "\n");
+	printf("%s", prova[5]);
+printf("%s", "\n");
+	printf("%s", prova[6]);
+	printf("%s", "\n");
+}*/
